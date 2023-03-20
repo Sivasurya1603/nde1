@@ -9,9 +9,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'npm install'
-        sh 'npm run build'
-        sh 'docker build -t my-node-app .'
+        bat 'npm install'
+        bat 'npm run build'
+        bat 'docker build -t my-node-app .'
       }
     }
     stage('Deploy') {
@@ -20,7 +20,7 @@ pipeline {
         IMAGE_NAME = 'my-node-app'
       }
       steps {
-        sh 'docker-compose up -d'
+        bat 'docker-compose up -d'
       }
     }
   }
